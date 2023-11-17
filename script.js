@@ -1,6 +1,7 @@
 // DOM elements
 const textAreaElement = document.getElementById('text-area')
 const themeControllerElement = document.getElementById('theme-controller')
+const copyBtnElement = document.getElementById('copy')
 
 // Variables
 const savedText = localStorage.getItem('text') || ''
@@ -24,6 +25,10 @@ themeControllerElement.addEventListener('change', () => {
 		localStorage.setItem('theme', 'dark')
 		document.documentElement.setAttribute('data-theme', 'dark')
 	}
+})
+
+copyBtnElement.addEventListener('click', () => {
+	navigator.clipboard.writeText(textAreaElement.value)
 })
 
 // Functions
